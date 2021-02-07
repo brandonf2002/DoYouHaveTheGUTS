@@ -1,4 +1,4 @@
-var map = L.Wrld.map("map", "60b82eeb01681e0bbe79eb694d3f708c", {
+var map = L.Wrld.map("map", "api-key", {
 	center: [34.08699834538547, -118.34464786483618],
 	zoom: 15
 });
