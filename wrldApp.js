@@ -54,11 +54,7 @@ async function getTweets(x, y){
                         a = a.replace(/(\r\n|\n|\r)/gm, "");
                         //convert tweet into an array of words
                         var b = a.split(" ");
-                        //console.log(b);
-                        //check the tweet is an object and the elements within are strings
-                        //console.log("Type of whole tweet array: " + typeof (b));
-                        //console.log("Type of element in array: " + typeof (b[1]));
-    
+			    
                         //get the sentiment of the tweet using different vocabularies
                         var sentA = afinn.getSentiment(b)
                         var sentB = senticon.getSentiment(b)
@@ -72,7 +68,7 @@ async function getTweets(x, y){
                         else if (overallSent<0.02) { sentSummary = "Undefined";}
                         else if (overallSent < 0.1) { sentSummary = "Mildly Positive"; }
                         else { sentSummary = "Strongly Positive"; }
-                        //console.log("Sentiment: " + sentSummary + " (" + overallSent + ")");
+                        
                         fineTweets.push(JSON.stringify({"id":id,"text":tweet ,"sentSummary":sentSummary ,"overallSent":overallSent,"geo":data.statuses[i].geo.coordinates,"age":calculateSince(data.statuses[i].created_at)}))
                     }   
                 }
